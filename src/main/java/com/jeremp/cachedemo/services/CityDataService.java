@@ -23,6 +23,7 @@ public class CityDataService {
 	
 	public CityData retrieveCityData(String uuid){
 		LOG.info("looking for the city {} informations...", uuid);
+		simulateSlowRequest(3);
 		return dataRepository.findOne(uuid);
 	}
 	
@@ -33,4 +34,12 @@ public class CityDataService {
 		return dataRepository.save(cityData);
 	}
 	
+	private void simulateSlowRequest(int seconds){
+	   /* AWFUL Hack to make it slow */
+		try {
+			Thread.sleep(seconds * 1000);
+		} catch (InterruptedException e) {
+			LOG.error("something goes wrong while trying to sleep", e);
+		}
+	}
 }
