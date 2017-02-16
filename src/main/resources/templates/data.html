@@ -1,0 +1,54 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Getting Started: Serving Web Content</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+	<link rel="stylesheet" href="https://dhbhdrzi4tiry.cloudfront.net/cdn/sites/foundation.min.css"/>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/foundicons/3.0.0/foundation-icons.css" rel='stylesheet' type='text/css'/>
+	<style>
+	
+	#myForm{
+	display: none;
+	}
+	
+	</style>
+</head>
+<body>
+
+<div class="callout large primary">
+<div class="row column text-center">
+<h1>Les villes du monde</h1>
+<h2 class="subheader">Accéder à toutes les infos</h2>
+</div>
+</div>
+<div class="row medium-8 large-7 columns text-center">
+<h1 th:text="${city.name}"></h1>
+<p>Maire : <span style="font-weight: bold" th:text="${data.mayor}"></span></p>
+<p>Population : <span style="font-weight: bold" th:text="${#numbers.formatInteger(data.population,5,'POINT')}"></span></p>
+
+<p style="margin-top: 5em;"><a onclick="$( '#myForm' ).toggle();">Editer les données</a></p>
+
+<div id="myForm">
+<form method="POST" th:attr="action=@{/data/edit}">
+<p>
+      <label>Maire
+        <input type="text" name="mayor" th:attr="value=${data.mayor}"/>
+      </label>
+</p>
+<p>
+      <label>Population
+        <input type="text" name="population" th:attr="value=${data.population}"/>
+      </label>
+</p>
+<div class="input-group-button">
+<input type="hidden" name="uuid" th:attr="value=${data.uuid}"/>
+    <input type="submit" class="button" value="Submit"/>
+  </div>
+</form>
+</div>
+
+</div>
+
+<script src="https://code.jquery.com/jquery-2.1.4.min.js"></script>
+</body>
+</html>

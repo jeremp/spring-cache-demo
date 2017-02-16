@@ -1,0 +1,40 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Getting Started: Serving Web Content</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+	<link rel="stylesheet" href="https://dhbhdrzi4tiry.cloudfront.net/cdn/sites/foundation.min.css"/>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/foundicons/3.0.0/foundation-icons.css" rel='stylesheet' type='text/css'/>
+</head>
+<body>
+
+<div class="callout large primary">
+<div class="row column text-center">
+<h1>Les villes du monde</h1>
+<h2 class="subheader">Accéder à toutes les infos</h2>
+</div>
+</div>
+<div class="row medium-8 large-7 columns">
+
+	<table width="100%">
+	<thead>
+	<th width="50"></th>
+	<th>Nom</th>
+	<th>Pays</th>
+	<th></th>
+	</thead>
+	<tbody>
+    <tr data-th-each="city : ${cities}">
+        <td data-th-text="${city.id}">...</td>
+        <td data-th-text="${city.name}">...</td>
+		<td data-th-text="${city.country}">...</td>
+		<td>
+		      <a th:href="@{/data(uuid=${city.uuid})}">En savoir plus...</a>
+		</td>
+    </tr>
+	</tbody>
+</table>
+
+</div>
+</body>
+</html>
