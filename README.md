@@ -20,4 +20,4 @@ Unfortunatly, the cache never expires and if someone edit those information, the
 
 * *updating-cache* : The cache entry is removed when informations are modified.
 
-* *refreshing-cache* : The cache entry is removed when informations are modified.
+* *refreshing-cache* : The cache entry is **refreshed** when informations are modified.
