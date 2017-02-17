@@ -8,6 +8,7 @@ import com.jeremp.cachedemo.web.WelcomeController;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.cache.annotation.CacheEvict;
 import org.springframework.cache.annotation.Cacheable;
 import org.springframework.stereotype.Service;
 
@@ -23,13 +24,14 @@ public class CityDataService {
 	@Autowired
 	private CityDataRepository dataRepository ;
 	
-	@Cacheable("citydata")
+	@Cacheable(cacheNames="citydata", key="#uuid")
 	public CityData retrieveCityData(String uuid){
 		LOG.info("looking for the city {} informations...", uuid);		
 		simulateSlowRequest(3);
 		return dataRepository.findOne(uuid);
 	}
 	
+	@CacheEvict(cacheNames="citydata", key="#uuid")
 	public CityData edit(String uuid, String mayor, long population){
 		CityData cityData = dataRepository.findOne(uuid);
 		cityData.setMayor(mayor);

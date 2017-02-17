@@ -17,3 +17,7 @@ Every Branch describes a step to improve the app :
 * *with-cache* : enabling a cache with `@EnableCaching` and `@Cacheable` annotations. 
 The first guy who ask for additionnal information about a particular city waits... the result is cached and the other asking for the same city won't wait. 
 Unfortunatly, the cache never expires and if someone edit those information, the cache is not updated.
+
+* *updating-cache* : The cache entry is removed when informations are modified.
+
+* *refreshing-cache* : The cache entry is removed when informations are modified.
