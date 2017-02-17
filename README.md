@@ -21,3 +21,5 @@ Unfortunatly, the cache never expires and if someone edit those information, the
 * *updating-cache* : The cache entry is removed when informations are modified.
 
 * *refreshing-cache* : The cache entry is **refreshed** when informations are modified.
+
+* *tuning-cache* : Using ehCache as cache Manager to tune the Memory usage and the cache entry expiration (setted to 10seconds)

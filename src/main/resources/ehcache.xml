@@ -1,0 +1,22 @@
+<ehcache  
+	xsi:noNamespaceSchemaLocation="ehcache.xsd" 
+	updateCheck="true" 
+	monitoring="autodetect" 
+	dynamicConfig="true"
+	maxBytesLocalHeap="15M"    
+>
+	<diskStore path="java.io.tmpdir"/>    
+	<defaultCache 
+		eternal="false" 
+		maxElementsInMemory="100" 
+		overflowToDisk="false"    />
+	
+	<cache name="citydata" 
+		 eternal="false"
+		 timeToLiveSeconds="10"
+		 maxBytesLocalHeap="3M"		 
+		 overflowToDisk="false"
+		 diskPersistent="false"		 
+		 memoryStoreEvictionPolicy="LRU"/>
+	
+</ehcache>
